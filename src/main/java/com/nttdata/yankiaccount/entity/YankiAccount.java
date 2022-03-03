@@ -15,6 +15,8 @@ public class YankiAccount {
 
     @Id
     private String id;
+    private String typeDoc;
+    private String numberDoc;
     private String numberCelphone;
     private String imei;
     private String email;
