@@ -15,14 +15,17 @@ public class YankiAccount {
 
     @Id
     private String id;
-    private String typeDoc;
+    private String typeDoc;//dni, ce
     private String numberDoc;
     private String numberCelphone;
     private String imei;
     private String email;
-    private String typeAccount;
-    private String numberAccount;
+    private String typeAccount; //yanki purse, cuenta bancaria
+    private String numberAccountPurse; //Guardará la cuenta de yankiPurse
+    private String numberAccount; //Sea de banco o yankiPurse
     @DateTimeFormat(pattern = "yyyy-mm-dd")
-    private Date date;
+    private Date createdAt;
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    private Date updateAt;
     private Boolean status;
 }

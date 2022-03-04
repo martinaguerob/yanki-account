@@ -13,6 +13,16 @@ public class WebClientConfig {
 
     private final WebClient.Builder webClientBuilder = WebClient.builder();
 
+    public Mono<YankiPurse> saveYankiPurse(YankiPurse yankiPurse){
+        return webClientBuilder.build()
+                .post()
+                .uri("http://localhost:8080/yanki-purse")
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(BodyInserters.fromValue(yankiPurse))
+                .retrieve()
+                .bodyToMono(YankiPurse.class);
+    }
+
     public Mono<YankiPurse> deleteYankiPurseByid(@PathVariable String id){
         return webClientBuilder.build()
                 .get()

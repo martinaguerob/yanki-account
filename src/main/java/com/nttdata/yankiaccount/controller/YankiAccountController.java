@@ -26,7 +26,7 @@ public class YankiAccountController {
     @ResponseStatus(HttpStatus.CREATED)
     public Mono<YankiAccount> saveYankiAccount(@RequestBody YankiAccount yankiAccount){
         System.out.println("Guardar cuenta en Yanki");
-        return yankiAccountService.save(yankiAccount);
+        return yankiAccountService.saveYankiAccount(yankiAccount);
     }
 
     @PutMapping("update/{id}")
@@ -40,5 +40,12 @@ public class YankiAccountController {
     @ResponseStatus(HttpStatus.OK)
     public Mono<YankiAccount> getYankiAccountByNumberCelphone(@PathVariable String numberCelphone){
         return yankiAccountService.findByNumberCelphone(numberCelphone);
+    }
+
+    @PutMapping("tobankaccount/{numberCelphone}")
+    @ResponseStatus(HttpStatus.OK)
+    public Mono<YankiAccount> addBankAccount(@PathVariable String numberCelphone, @RequestBody YankiAccount yankiAccount){
+        System.out.println("Agregar cuenta bancaria");
+        return yankiAccountService.addBankAccount(numberCelphone, yankiAccount);
     }
 }
